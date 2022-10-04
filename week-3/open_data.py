@@ -8,7 +8,7 @@ viewlist=data["result"]["results"]
 with open("data.csv", "w", encoding="utf-8") as file:
     for place in viewlist:
         end=place["file"].lower().find("jpg") #因為網址裡包含大寫的JPG，所以先把網址列全部轉為小寫，再查找jpg第一次出現的位置。
-        if all(i not in place["xpostDate"] for i in ["2013", "2014"]):
+        if int(place["xpostDate"][0:4])>=2015:
             file.write(place["stitle"]+","+place["address"][5:8]+","+ 
             place["longitude"]+","+place["latitude"]+","+place["file"][0:end+3]+"\n")
 
