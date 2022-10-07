@@ -64,7 +64,8 @@ a{
     color: #fff;
 }
 main{
-    margin: 10px;
+    margin: 10px auto;
+    width:1200px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -88,13 +89,28 @@ div.icon{
     margin-right: 10px;
     background-size: cover;
 }
-main>.content{
+.content{
     flex: none;
     width: 280px;
     height: 220px;
     margin: 5px;
     background-color: #f0f2d8;
     position: relative;
+    /* background-image: url(https://images.pexels.com/photos/6489568/pexels-photo-6489568.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940); */
+    background-size: cover;
+}
+
+.test{
+    text-align: center;
+    width: 100%;
+    
+    color: #000;
+    background-color: #ffffff;
+    letter-spacing: 6px;
+    font-family: 'Quicksand', sans-serif;
+    opacity: 0.7;
+    position: absolute;
+    bottom: 0px;
 }
 .star{
     width: 30px;
@@ -137,6 +153,9 @@ div.image{
     transform: scale(0.95);
 }
 @media(max-width:1200px){
+    main{
+        width:auto;
+    }
     main>.item{
         width: 45%;
     }
