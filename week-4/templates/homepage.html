@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="homepage.css">
+    <title>Flask 網頁製作</title>
+</head>
+<body>
+    <header>
+        歡迎光臨，請輸入帳號密碼
+    </header>
+    <form  method="post">
+        <div class="login">
+            <b>登入系統</b><br/>帳號 
+            <input type="text" name="account"/><br/>密碼
+            <input type="password" name="password"/><br/>
+            <input type="submit" value="登入">
+        </div>
+    </form>
+    <hr/>
+    <form id="myForm" method="post" onsubmit="connect()">
+        <div class="calculate">
+            <b>計算正整數的平方</b><br/>正整數
+            <input type="text" name="number"><br/>
+            <input type="submit" value="計算">
+        </div>
+    </form>
+    <script>
+        function connect(){
+            let action_src = "/square/" + document.getElementsByName("number")[0].value;
+            let my_form = document.getElementById("myForm");
+            my_form.action = action_src;
+        }
+    </script>
+</body>
+</html>
