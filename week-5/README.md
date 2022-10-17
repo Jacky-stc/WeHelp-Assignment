@@ -37,10 +37,13 @@
 
 ### 要求五
 * **使⽤ SELECT 搭配 JOIN 語法，取得所有留⾔，結果須包含留⾔者會員的姓名。**
-  > ![要求五-1](https://user-images.githubusercontent.com/112391673/196139103-f7eee0e9-3a90-4fc6-94ea-2dfbdc9d10bc.png)
+  > ![要求五-1](https://user-images.githubusercontent.com/112391673/196143004-d198067b-669b-4bc5-92eb-47b29b7e9a13.png)
+
 
 * **使⽤ SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔，資料中須包含留⾔者會員的姓名。**
-  > ![要求五-2](https://user-images.githubusercontent.com/112391673/196139131-8d046c7f-8a13-48a7-9e3b-e96413618e99.png)
+  > ![要求五-2](https://user-images.githubusercontent.com/112391673/196143035-d407c2c2-1c56-4be3-a667-489eea5dfbd1.png)
+
 
 * **使⽤ SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔平均按讚數。**
-  > ![要求五-3](https://user-images.githubusercontent.com/112391673/196139152-b8cb297e-c0a4-4ef4-9363-a2f89c6b4212.png)
+  > ![要求五-3](https://user-images.githubusercontent.com/112391673/196143070-3ca98d48-6044-4d38-946b-f771ddebc5f5.png)
+
