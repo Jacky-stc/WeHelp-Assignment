@@ -23,3 +23,12 @@
 
 * **使⽤ UPDATE 指令更新欄位 username 是 test 的會員資料，將資料中的 name 欄位改成 test2。**
   > ![擷取6](https://user-images.githubusercontent.com/112391673/196136081-7f3e90b9-bbab-4e98-9ac1-57e404654c67.PNG)
+
+### 要求四
+* **取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。**
+  > ![要求四-1](https://user-images.githubusercontent.com/112391673/196137666-459ffb1e-39ee-4d54-a81d-c64d9d0d4c76.png)
+
+* **取得 member 資料表中，所有會員 follower_count 欄位的總和。**
+  > 
+* **取得 member 資料表中，所有會員 follower_count 欄位的平均數。**
+  > ![要求四](https://user-images.githubusercontent.com/112391673/196137636-a5da1332-0a7d-4a80-bd4a-04e7b273ad44.PNG)
