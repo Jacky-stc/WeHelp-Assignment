@@ -1,7 +1,8 @@
 ## Week-5_Assignment
   ### 要求三
 * **使⽤ INSERT 指令新增⼀筆資料到 member 資料表中，這筆資料的 username 和password 欄位必須是 test。接著繼續新增⾄少 4 筆隨意的資料。**
-  > ![擷取](https://user-images.githubusercontent.com/112391673/196135527-ddcd252e-e1ce-4784-9643-39728d144486.PNG)
+  > ![擷取](https://user-images.githubusercontent.com/112391673/196144372-51d9a992-5a28-4d2a-a1bb-09e88bba45e5.PNG)
+
 
 
 * **使⽤ SELECT 指令取得所有在 member 資料表中的會員資料。**
