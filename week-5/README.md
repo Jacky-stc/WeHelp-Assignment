@@ -26,9 +26,21 @@
 
 ### 要求四
 * **取得 member 資料表中，總共有幾筆資料 ( 幾位會員 )。**
-  > ![要求四-1](https://user-images.githubusercontent.com/112391673/196137666-459ffb1e-39ee-4d54-a81d-c64d9d0d4c76.png)
+  > ![要求四-1](https://user-images.githubusercontent.com/112391673/196138226-76786756-90e9-4610-b8c9-66cdf1be04ba.png)
+
 
 * **取得 member 資料表中，所有會員 follower_count 欄位的總和。**
-  > 
+  > ![要求四-2](https://user-images.githubusercontent.com/112391673/196138242-ea823cb0-1981-43f2-bc94-ef4dc24e4a85.png)
+
 * **取得 member 資料表中，所有會員 follower_count 欄位的平均數。**
-  > ![要求四](https://user-images.githubusercontent.com/112391673/196137636-a5da1332-0a7d-4a80-bd4a-04e7b273ad44.PNG)
+  > ![要求四-3](https://user-images.githubusercontent.com/112391673/196138260-3e832ab0-1536-4475-b118-777dd24caf7d.png)
+
+### 要求五
+* **使⽤ SELECT 搭配 JOIN 語法，取得所有留⾔，結果須包含留⾔者會員的姓名。**
+  > ![要求五-1](https://user-images.githubusercontent.com/112391673/196139103-f7eee0e9-3a90-4fc6-94ea-2dfbdc9d10bc.png)
+
+* **使⽤ SELECT 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔，資料中須包含留⾔者會員的姓名。**
+  > ![要求五-2](https://user-images.githubusercontent.com/112391673/196139131-8d046c7f-8a13-48a7-9e3b-e96413618e99.png)
+
+* **使⽤ SELECT、SQL Aggregate Functions 搭配 JOIN 語法，取得 member 資料表中欄位 username 是 test 的所有留⾔平均按讚數。**
+  > ![要求五-3](https://user-images.githubusercontent.com/112391673/196139152-b8cb297e-c0a4-4ef4-9363-a2f89c6b4212.png)
