@@ -4,7 +4,7 @@ import pymysql
 db = pymysql.connect(
     host = 'localhost',
     user = 'root',
-    password = '',
+    password = '13579jacky',
     database = 'website',
     charset = 'utf8'
 ) # 與mysql資料庫連接並設定參數
@@ -20,22 +20,7 @@ app.secret_key = "secretKey"
 
 @app.route("/", methods=['POST', 'GET'])
 def homepage():
-    if request.method == "POST":
-        account = request.form["account"]
-        password = request.form["password"]
-        sql = "SELECT * FROM member WHERE username = %s and password = %s"
-        val = (account,password)
-        cursor.execute(sql,val)
-        user = cursor.fetchone()
-        db.commit
-        if user == None: # 確認該帳戶是否存在
-            return redirect(url_for("error", message="帳號或密碼輸入錯誤"))
-        else:
-            session["id"] = user[0]
-            session['name'] = user[1]# 由MySQL fetch出來的user資料為tuple型別，需取其列表的第一項，暫時放入session內做提取
-            return redirect(url_for("login"))
-    else:
-        return render_template("homepage.html")
+    return render_template("homepage.html")
 
 @app.route("/signup", methods=['POST','GET'])
 def signup():
@@ -58,30 +43,40 @@ def signup():
         return redirect(url_for("error", message = "帳號已經被註冊"))
 
 
-@app.route("/login",methods=['GET','POST'])
-def login():  
-    session["state"] = "已登入"
-    return redirect(url_for("member"))
+@app.route("/signin",methods=['GET','POST'])
+def signin():
+    account = request.form["account"]
+    password = request.form["password"]
+    sql = "SELECT * FROM member WHERE username = %s and password = %s"
+    val = (account,password)
+    cursor.execute(sql,val)
+    user = cursor.fetchone()
+    db.commit
+    if user == None: # 確認該帳戶是否存在
+        return redirect(url_for("error", message="帳號或密碼輸入錯誤"))
+    else:
+        session["id"] = user[0]
+        session['name'] = user[1]# 由MySQL fetch出來的user資料為tuple型別，需取其列表的第一項，暫時放入session內做提取
+        session["state"] = "已登入"
+        return redirect(url_for("member"))
+        # return redirect(url_for("signin",method = 'POST'))  
 
 @app.route("/member", methods=['GET', 'POST'])
 def member():
     if session["state"] != "已登入":
         return redirect(url_for("homepage"))
     else:
-        if request.method == "POST":
-            content = request.form["content"]
-            sql = "INSERT INTO message (member_id, content) VALUES (%s,%s)"
-            val = (session['id'],content)
-            cursor.execute(sql, val)
-            db.commit()
-            return redirect(url_for("message"))
-        else:
-            cursor.execute("SELECT member.name, message.content, message.time FROM message INNER JOIN member ON member.id = message.member_id ORDER BY time")
-            info = cursor.fetchall()
-            return render_template("member.html",name=session['name'],content = info)
+        cursor.execute("SELECT member.name, message.content, message.time FROM message INNER JOIN member ON member.id = message.member_id ORDER BY time")
+        info = cursor.fetchall()
+        return render_template("member.html",name=session['name'],content = info)
 
-@app.route("/message")
+@app.route("/message",methods = ['POST'])
 def message():
+    content = request.form["content"]
+    sql = "INSERT INTO message (member_id, content) VALUES (%s,%s)"
+    val = (session['id'],content)
+    cursor.execute(sql, val)
+    db.commit()
     return redirect(url_for("member"))
 
 @app.route("/error")
