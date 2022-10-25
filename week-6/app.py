@@ -4,7 +4,7 @@ import pymysql
 db = pymysql.connect(
     host = 'localhost',
     user = 'root',
-    password = 'jacky13257',
+    password = '',
     database = 'website',
     charset = 'utf8'
 ) # 與mysql資料庫連接並設定參數
