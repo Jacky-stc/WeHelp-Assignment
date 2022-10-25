@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link  rel="stylesheet" href="homepage.css"/>
+    <title>會員系統建立</title>
+</head>
+<body>
+    <header>
+        歡迎光臨，這是會員頁
+    </header>
+    <main>
+        <div>
+            {{ name }}, 歡迎登入系統
+        </div>
+    </main>
+    <a href="/signout">登出系統</a>
+    <hr/>
+    <form class = "typein" action="/member" method="post">
+        <b>快來留言吧</b><br/>
+        內容<input type="text" name="content"/><br/>
+        <input class = "content" type="submit" value="送出"></input>
+    </form>
+    <tr>
+        {% for i in content %}
+        <td>{{ i.0 }} ： {{ i.1 }}</td><br/>
+        {% endfor %}
+    </tr>
+
+</body>
+</html>
