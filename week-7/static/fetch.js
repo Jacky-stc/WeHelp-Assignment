@@ -14,7 +14,7 @@ function get_name(){
             search_name.textContent =  "查無此用戶"
         }else{
             username = data.data['name'];
-            search_name.textContent = username + "(" + user_account + ")";
+            search_name.textContent = username + `( ${user_account} )`;
         }
         result.appendChild(search_name);
         document.getElementById("name").value = "";
