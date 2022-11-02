@@ -103,19 +103,21 @@ def searching_name():
         val = (username, )
         cursor.execute(sql, val)
         user = cursor.fetchone()
-        connection_object.commit
-        user != None
-        return {
-            "data":{
-            "id":user[0],
-            "name":user[1],
-            "username":user[2]
+        connection_object.commit()
+        if user != None:
+            return {
+                "data":{
+                "id":user[0],
+                "name":user[1],
+                "username":user[2]
+                }
             }
-        }
+        else:
+            return {
+                "data":None
+            }
     except:
-        return {
-            "data":None
-        }
+        return "Unexpected Error", 500
     finally:
         cursor.close()
         connection_object.close()
@@ -127,7 +129,7 @@ def change_info():
         connection_object = connection_pool.get_connection()
         cursor =  connection_object.cursor()
         sql  = "UPDATE member SET name = %s WHERE id = %s"
-        val = (req["name"], 7)
+        val = (req["name"], session["id"])
         cursor.execute(sql, val)
         connection_object.commit()
         session["name"]=req["name"]
