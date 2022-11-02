@@ -1,0 +1,43 @@
+body{
+    margin: 0px;
+    text-align: center;
+}
+header{
+    background-color: #223344;
+    text-align: center;
+    color: #fff;
+    font-size: 26px;
+    padding: 10px;
+}
+form{
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 20px;
+    font-size: 24px;
+    line-height: 50px;
+    
+}
+main{
+    margin-top: 50px;
+    font-size: 24px;
+    line-height: 50px;
+}
+.type-title{
+    margin-top: 30px;
+    line-height: 30px;
+    font-size: 18px;
+}
+.button{
+    margin-top: 20px;
+}
+.board{
+    margin-top: 20px;
+}
+.message{
+    text-align: justify;
+    padding-left: 20px;
+    background-color: #dddddd;
+    border: solid 1px;
+    height: 40px;
+
+}
