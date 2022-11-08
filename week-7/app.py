@@ -38,17 +38,19 @@ def signup():
         cursor.execute(check_sql,check_val)
         user = cursor.fetchone()
         connection_object.commit()
-        user == None
-        name = request.form["name"]
-        account = request.form["account"]
-        password = request.form["password"]
-        signup_sql = "INSERT INTO member (name, username, password) VALUES (%s,%s,%s)"
-        signup_val = (name, account, password)
-        cursor.execute(signup_sql, signup_val)
-        connection_object.commit()
-        return redirect(url_for("homepage"))
+        if user == None:
+            name = request.form["name"]
+            account = request.form["account"]
+            password = request.form["password"]
+            signup_sql = "INSERT INTO member (name, username, password) VALUES (%s,%s,%s)"
+            signup_val = (name, account, password)
+            cursor.execute(signup_sql, signup_val)
+            connection_object.commit()
+            return redirect(url_for("homepage"))
+        else:
+            return redirect(url_for("error", message = "帳號已經被註冊"))
     except:
-        return redirect(url_for("error", message = "帳號已經被註冊"))
+        return "Unexpected Error", 500
     finally:
         cursor.close()
         connection_object.close()
@@ -65,13 +67,15 @@ def signin():
         cursor.execute(signin_sql,signin_val)
         user = cursor.fetchone()
         connection_object.commit()
-        user != None
-        session["id"] = user[0]
-        session["name"] = user[1]
-        session["state"] = "已登入"
-        return redirect(url_for("member"))
+        if user != None:
+            session["id"] = user[0]
+            session["name"] = user[1]
+            session["state"] = "已登入"
+            return redirect(url_for("member"))
+        else:
+            return redirect(url_for("error", message="帳號或密碼輸入錯誤"))
     except:
-        return redirect(url_for("error", message="帳號或密碼輸入錯誤"))
+        return "Unexpected Error", 500
     finally:
         cursor.close()
         connection_object.close()
